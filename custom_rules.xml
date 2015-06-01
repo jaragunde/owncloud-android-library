@@ -6,6 +6,7 @@
             <fileset dir="src" includes="**" />
             <fileset dir="libs/commons-httpclient-3.1/src/java" includes="**" />
             <fileset dir="libs/commons-codec-1.9/src/main/java" includes="**" />
+            <fileset dir="libs/slf4j-1.7.12/src/java" includes="**" />
         </copy>
     </target>
 
