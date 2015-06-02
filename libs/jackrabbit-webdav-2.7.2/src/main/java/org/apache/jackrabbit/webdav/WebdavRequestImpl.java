@@ -25,17 +25,26 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.AsyncContext;
+import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.jackrabbit.webdav.bind.BindInfo;
@@ -822,11 +831,11 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
         return httpRequest.getHeader(s);
     }
 
-    public Enumeration<?> getHeaders(String s) {
+    public Enumeration<String> getHeaders(String s) {
         return httpRequest.getHeaders(s);
     }
 
-    public Enumeration<?> getHeaderNames() {
+    public Enumeration<String> getHeaderNames() {
         return httpRequest.getHeaderNames();
     }
 
@@ -910,7 +919,7 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
         return httpRequest.getAttribute(s);
     }
 
-    public Enumeration<?> getAttributeNames() {
+    public Enumeration<String> getAttributeNames() {
         return httpRequest.getAttributeNames();
     }
 
@@ -938,7 +947,7 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
         return httpRequest.getParameter(s);
     }
 
-    public Enumeration<?> getParameterNames() {
+    public Enumeration<String> getParameterNames() {
         return httpRequest.getParameterNames();
     }
 
@@ -946,7 +955,7 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
         return httpRequest.getParameterValues(s);
     }
 
-    public Map<?,?> getParameterMap() {
+    public Map<String, String[]> getParameterMap() {
         return httpRequest.getParameterMap();
     }
 
@@ -990,7 +999,7 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
         return httpRequest.getLocale();
     }
 
-    public Enumeration<?> getLocales() {
+    public Enumeration<Locale> getLocales() {
         return httpRequest.getLocales();
     }
 
@@ -1004,5 +1013,89 @@ public class WebdavRequestImpl implements WebdavRequest, DavConstants {
 
     public String getRealPath(String s) {
         return httpRequest.getRealPath(s);
+    }
+
+    @Override
+    public boolean authenticate(HttpServletResponse response)
+            throws IOException, ServletException {
+        return httpRequest.authenticate(response);
+    }
+
+    @Override
+    public void login(String username, String password) throws ServletException {
+        httpRequest.login(username, password);
+    }
+
+    @Override
+    public void logout() throws ServletException {
+        httpRequest.logout();
+    }
+
+    @Override
+    public Collection<Part> getParts() throws IOException,
+            IllegalStateException, ServletException {
+        return httpRequest.getParts();
+    }
+
+    @Override
+    public Part getPart(String name) throws IOException, IllegalStateException,
+            ServletException {
+        return httpRequest.getPart(name);
+    }
+
+    @Override
+    public int getRemotePort() {
+        return httpRequest.getRemotePort();
+    }
+
+    @Override
+    public String getLocalName() {
+        return httpRequest.getLocalName();
+    }
+
+    @Override
+    public String getLocalAddr() {
+        return httpRequest.getLocalAddr();
+    }
+
+    @Override
+    public int getLocalPort() {
+        return httpRequest.getLocalPort();
+    }
+
+    @Override
+    public ServletContext getServletContext() {
+        return httpRequest.getServletContext();
+    }
+
+    @Override
+    public AsyncContext startAsync() {
+        return httpRequest.startAsync();
+    }
+
+    @Override
+    public AsyncContext startAsync(ServletRequest servletRequest,
+            ServletResponse servletResponse) {
+        return httpRequest.startAsync(servletRequest, servletResponse);
+    }
+
+    @Override
+    public boolean isAsyncStarted() {
+        return httpRequest.isAsyncStarted();
+    }
+
+    @Override
+    public boolean isAsyncSupported() {
+        return httpRequest.isAsyncSupported();
+    }
+
+    @Override
+    public AsyncContext getAsyncContext() {
+        return httpRequest.getAsyncContext();
+    }
+
+    @Override
+    public DispatcherType getDispatcherType() {
+        return httpRequest.getDispatcherType();
     }
 }

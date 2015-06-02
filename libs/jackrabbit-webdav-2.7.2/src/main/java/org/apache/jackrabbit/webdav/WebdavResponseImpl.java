@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.util.Collection;
 import java.util.Locale;
 
 /**
@@ -309,5 +310,35 @@ public class WebdavResponseImpl implements WebdavResponse {
 
     public Locale getLocale() {
         return httpResponse.getLocale();
+    }
+
+    @Override
+    public int getStatus() {
+        return httpResponse.getStatus();
+    }
+
+    @Override
+    public String getHeader(String name) {
+        return httpResponse.getHeader(name);
+    }
+
+    @Override
+    public Collection<String> getHeaders(String name) {
+        return httpResponse.getHeaders(name);
+    }
+
+    @Override
+    public Collection<String> getHeaderNames() {
+        return httpResponse.getHeaderNames();
+    }
+
+    @Override
+    public String getContentType() {
+        return httpResponse.getContentType();
+    }
+
+    @Override
+    public void setCharacterEncoding(String charset) {
+        httpResponse.setCharacterEncoding(charset);
     }
 }
