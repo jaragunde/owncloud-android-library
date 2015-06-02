@@ -8,6 +8,7 @@
             <fileset dir="libs/commons-codec-1.9/src/main/java" includes="**" />
             <fileset dir="libs/slf4j-1.7.12/src/java" includes="**" />
             <fileset dir="libs/jackrabbit-webdav-2.7.2/src/main/java" includes="**" />
+            <fileset dir="libs/tomcat-7.0.40/java" includes="**" />
         </copy>
     </target>
 
