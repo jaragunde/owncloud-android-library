@@ -4,7 +4,7 @@
 Using ownCloud Android library it will be the easiest way to communicate with ownCloud servers.
 Add this library in your project and integrate your application with ownCloud seamlessly.
 
-This fork removes includes all dependencies in source form, removing any binary jars.
+This fork includes all dependencies in source form, removing any binary jars.
 
 ### Install Library
 #### 2.1. Information how to get the library
