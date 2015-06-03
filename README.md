@@ -4,6 +4,8 @@
 Using ownCloud Android library it will be the easiest way to communicate with ownCloud servers.
 Add this library in your project and integrate your application with ownCloud seamlessly.
 
+This fork removes includes all dependencies in source form, removing any binary jars.
+
 ### Install Library
 #### 2.1. Information how to get the library
 
@@ -39,16 +41,31 @@ Both of them branch off from develop and must merge back into develop branch thr
 
 Source: http://nvie.com/posts/a-successful-git-branching-model 
 
+#### Brach no-binary-deps
+
+This branch removes binary jar files and replaces them with the source code for any required libraries.
+
+It will be periodically merged with master and tagged with the corresponding version number plus -no-binary-deps.
+
 ###  License
 
 ownCloud Android Library is available under MIT license. See the file LICENSE.md with the full license text. 
 
 #### Third party libraries
 
-ownCloud Android Library uses Apache JackRabbit, version 2.2.5. Copyright (C) 2004-2010 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
+This bundle contains source code from the following projects:
 
-Apache JackRabbit depends on Commons HTTPClient version 3.1 and SLF4j version 1.7.5; both included also. Copyright (C) 2004-2010 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
-   
+* Apache Commons Codec, version 1.9. Copyright 2002-2013 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
+
+* Apache Jakarta HttpClient, version 3.1. Copyright 1999-2007 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
+
+* Apache Jackrabbit, version 2.7.2. Copyright 2013 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
+
+* SLF4J, version 1.7.12. Copyright (c) 2004-2013 QOS.ch. Distributed under the MIT license.
+
+* Java Servlet implementation from the Apache Tomcat project, version 7.0.40. Copyright 1999-2013 The Apache Software Foundation. Licensed under Apache License, Version 2.0.
+
+Original license files and copyright notices are under the corresponding directories inside libs/.
 
 ### Compatibility
 
